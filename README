@@ -1,0 +1,8 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1793
+
+fcsh can compile actionscript 3 and mxml files.
+included are fcshserv.sh and fcshcmp.sh.
+fcshserv.sh should be launched manually before you edit
+.as or .mxml files.
+then, you can execute fcshcmp.sh from vim to compile and optionally run .swf file.
+
