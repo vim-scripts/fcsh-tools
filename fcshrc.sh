@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ $FCSH_VIM_ROOT = "" ]]; then
+if [[ "$FCSH_VIM_ROOT" = "" ]]; then
     FCSH_VIM_ROOT="$HOME/bin"
 fi
 lockdir="$FCSH_VIM_ROOT/fcsh.vim.lock"

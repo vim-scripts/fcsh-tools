@@ -10,18 +10,18 @@ if (( $# < 1 )); then
 fi
 
 #get resource.
-if [[ $FCSH_VIM_ROOT = "" ]]; then
+if [[ "$FCSH_VIM_ROOT" = "" ]]; then
     FCSH_VIM_ROOT="$HOME/bin"
 fi
-source $FCSH_VIM_ROOT/fcshrc.sh
+source "$FCSH_VIM_ROOT/fcshrc.sh"
 
 #variables
-file=$1
+file="$1"
 swf="${file%.*}.swf"
 flashplayer="flashplayer"
 
 #check if $file is full path
-if [[ ! $file = */* ]]; then
+if [[ ! "$file" == */* ]]; then
     echo >2& "$file has to be full path"
     exit 1
 fi
@@ -44,10 +44,10 @@ echo "idfile: $idfile"
 if [[ -f "$idfile" ]]; then
     echo "incremental compilation"
     id=$( head -1 "$idfile" )
-    echo "compile $id" > $pipein
+    echo "compile $id" > "$pipein"
 else
     echo "initial compilation"
-    echo "mxmlc -verbose-stacktraces -debug --strict $file" > $pipein
+    echo "mxmlc -verbose-stacktraces -debug --strict $file" > "$pipein"
 fi
 
 #wait until fcsh finishes current compilation.
